@@ -1,11 +1,7 @@
-.question {
-  margin: 1em;
+h3, .question, #submit {
+  margin: 10px;
 }
 
 .answers {
-  margin-left: 1em;
-}
-
-#submit {
-  margin: 1em;
+  margin-left: 5px;
 }
