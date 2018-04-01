@@ -1,8 +1,8 @@
-#root_div {
+#root {
   height: 600px;
 }
 
-#content_div {
+#content {
   display: inline-block;
   height: 100%;
   margin-left: 20px;
@@ -11,7 +11,7 @@
   width: 20%;
 }
 
-#pdf_view_div {
+#pdf_view {
   display: inline-block;
   float: right;
   height: 100%;

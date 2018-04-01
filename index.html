@@ -14,15 +14,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="root_div">
-	  <div id="content_div">
+    <div id="root">
+	  <div id="content">
 	    <h3><b>HEADER</b></h3><br>
 		<p>Description</p><br>
 	    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('First')">First</button>
 		<button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('Second')">Second</button>
 		<button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('Third')">Third</button>
+		<a class="btn btn-secondary btn-lg btn-block" href="testing.html" role="button">Pass testing</a>
 	  </div>
-      <div id="pdf_view_div">
+      <div id="pdf_view">
         <object id="pdf_object" data="docs/First.pdf" type="application/pdf"></object>
 	  </div>
 	</div>
