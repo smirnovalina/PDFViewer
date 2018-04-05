@@ -8,7 +8,7 @@
   margin-left: 20px;
   margin-top: 20px;
   vertical-align: top;
-  width: 20%;
+  width: 40%;
 }
 
 #pdf_view {
@@ -23,3 +23,7 @@ object {
   height: 100%;
   width: 100%;
 }
+ #otstup { 
+    margin: 1%; /* Убираем отступы */
+   }
+  
