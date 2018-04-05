@@ -2,6 +2,11 @@
   height: 600px;
 }
 
+#description {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 #content {
   display: inline-block;
   height: 100%;
@@ -23,7 +28,3 @@ object {
   height: 100%;
   width: 100%;
 }
- #otstup { 
-    margin: 1%; /* Убираем отступы */
-   }
-  
