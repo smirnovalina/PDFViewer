@@ -1,3 +1,5 @@
 venv
 tutorial/.idea
+docs
 PDFViewer/docs
+**/*.pyc
