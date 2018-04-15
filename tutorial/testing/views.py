@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
-from rest_framework.renderers import TemplateHTMLRenderer
+from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from testing.models import Test, Result
@@ -20,7 +20,6 @@ class TestList(APIView):
         tests = Test.objects.all()
         serializer = TestSerializer(tests, many=True)
         return Response({'tests': serializer.data})
-        # return Response(serializer.data)
 
     def post(self, request):
         serializer = TestSerializer(data=request.data)
@@ -60,13 +59,15 @@ class ResultList(APIView):
     """
     List all results, or create a new result.
     """
+    renderer_classes = [JSONRenderer, TemplateHTMLRenderer]
+    template_name = 'result/index.html'
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def get(self, request):
         results = Result.objects.all()
         self.check_object_permissions(request, results)
         serializer = ResultSerializer(results, many=True)
-        return Response(serializer.data)
+        return Response({'results': serializer.data})
 
     def post(self, request):
         serializer = ResultSerializer(data=request.data)

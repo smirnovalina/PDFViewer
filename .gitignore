@@ -1,5 +1,5 @@
 venv
 tutorial/.idea
+tutorial/**/*.pyc
 docs
 PDFViewer/docs
-**/*.pyc

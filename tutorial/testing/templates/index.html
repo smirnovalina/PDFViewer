@@ -15,26 +15,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="root">
-      <center><h2><b>Интерактивная обучающающая система на тему:</b></h2></center>
-	  <center><h2><b>"Организация Web-доступа с использованием языка Python"</b></h2></center>
-      <p id="description" align="justify">Деятельностью данной системы является предоставление обучения Web-доступу с помощью Web-фреймворка Django. Данная интерактивная обучающая система  предназначена для подготовки обучающихся по направлению 09.03.02 «Информационные системы и технологии». Также система предназначена для аппаратного и программного обеспечения, то есть получением информаци, вводимой пользователем, и передачи ему своего ответа, помогая в работе или выполнении задачи.</p>
-	  <div id="content">
-	    <h3><b>Меню:</b></h3>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/1.pdf' %}')">Знакомство с Django</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/2.pdf' %}')">Руководство по установке</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/3.pdf' %}')">Создаем свое первое приложение с Django, часть 1</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/4.pdf' %}')">Создаем свое первое приложение с Django, часть 2</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/5.pdf' %}')">Создаем свое первое приложение с Django, часть 3</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/6.pdf' %}')">Создаем свое первое приложение с Django, часть 4</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/7.pdf' %}')">Создаем свое первое приложение с Django, часть 5</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/8.pdf' %}')">Создаем свое первое приложение с Django, часть 6</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/9.pdf' %}')">Создаем свое первое приложение с Django, часть 7</button>
-        <a class="btn btn-secondary btn-lg btn-block" href="{% url 'test' %}" role="button">Пройти тестирование</a>
+    {% if user.is_authenticated %}
+      <div id="root">
+        <center><h2><b>Интерактивная обучающающая система на тему:</b></h2></center>
+	    <center><h2><b>"Организация Web-доступа с использованием языка Python"</b></h2></center>
+        <p id="description" align="justify">Деятельностью данной системы является предоставление обучения Web-доступу с помощью Web-фреймворка Django. Данная интерактивная обучающая система  предназначена для подготовки обучающихся по направлению 09.03.02 «Информационные системы и технологии». Также система предназначена для аппаратного и программного обеспечения, то есть получением информаци, вводимой пользователем, и передачи ему своего ответа, помогая в работе или выполнении задачи.</p>
+	    <div id="content">
+	      <h3><b>Меню:</b></h3>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/1.pdf' %}')">Знакомство с Django</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/2.pdf' %}')">Руководство по установке</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/3.pdf' %}')">Создаем свое первое приложение с Django, часть 1</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/4.pdf' %}')">Создаем свое первое приложение с Django, часть 2</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/5.pdf' %}')">Создаем свое первое приложение с Django, часть 3</button><button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/6.pdf' %}')">Создаем свое первое приложение с Django, часть 4</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/7.pdf' %}')">Создаем свое первое приложение с Django, часть 5</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/8.pdf' %}')">Создаем свое первое приложение с Django, часть 6</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="showPDF('{% static 'docs/9.pdf' %}')">Создаем свое первое приложение с Django, часть 7</button>
+          <a class="btn btn-secondary btn-lg btn-block" href="{% url 'test' %}" role="button">Пройти тестирование</a>
+	    </div>
+        <div id="pdf_view">
+          <object id="pdf_object" data="{% static 'docs/1.pdf' %}" type="application/pdf"></object>
+	    </div>
 	  </div>
-      <div id="pdf_view">
-        <object id="pdf_object" data="{% static 'docs/1.pdf' %}" type="application/pdf"></object>
-	  </div>
-	</div>
+    {% else %}
+      <div id="login">
+        <p>You are not logged in!</p>
+        <a class="btn btn-primary" href="/auth/login/" role="button">Login</a>
+      </div>
+    {% endif %}
   </body>
 </html>

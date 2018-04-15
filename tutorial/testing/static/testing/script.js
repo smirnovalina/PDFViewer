@@ -41,7 +41,12 @@ function postResult(questionCount) {
     }).then(function(response) {
         return response.json();
     }).then(function(data) {
-        alert('Result is ' + parseInt(data.correct_answer_count / data.question_count * 100) + '%');
+        var percent = parseInt(data.correct_answer_count / data.question_count * 100);
+        var mark = 2;
+        if(percent > 80) mark = 5;
+        else if(percent > 60) mark = 4;
+        else if(percent > 40) mark = 3;
+        alert('Result is ' + data.correct_answer_count  + '/' + data.question_count + ', your mark is ' + mark);
     }).catch(function(ex) {
         alert('parsing failed: ' + ex);
     });
